@@ -14,8 +14,15 @@ var myMap = L.map("map", {
     accessToken: API_KEY
   }).addTo(myMap);
   
+
+  var classexampleUrl =
+  "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=" +
+  "2014-01-02&maxlongitude=-69.52148437&minlongitude=-123.83789062&maxlatitude=48.74894534&minlatitude=25.16517337";
+
+  var Instructionsurl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_day.geojson"
+
    // Grab the data with d3
-  d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_day.geojson").then(function(response) {
+  d3.json(classexampleUrl).then(function(response) {
 
   var markers = L.markerClusterGroup();
   var quakeArray = [];
