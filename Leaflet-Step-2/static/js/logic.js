@@ -1,7 +1,7 @@
 //HOMEWORK LEAFLET-CHALLENGE
 
 // Define streetmap and darkmap layers
-var streetmap = L.tileLayer(
+var satellitemap = L.tileLayer(
   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
   {
     attribution:
@@ -9,7 +9,7 @@ var streetmap = L.tileLayer(
     tileSize: 512,
     maxZoom: 18,
     zoomOffset: -1,
-    id: "mapbox/streets-v11",
+    id: "mapbox/satellite-v9",
     accessToken: API_KEY,
   }
 );
@@ -25,26 +25,25 @@ var darkmap = L.tileLayer(
   }
 );
 
-// var streetmap = L.tileLayer(
-//   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-//   {
-//     attribution:
-//       "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-//     tileSize: 512,
-//     maxZoom: 18,
-//     zoomOffset: -1,
-//     id: "mapbox/streets-v11",
-//     accessToken: API_KEY,
-//   }
-// );
+var outdoorsmap = L.tileLayer(
+  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+  {
+    attribution:
+      "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+    tileSize: 512,
+    maxZoom: 18,
+    zoomOffset: -1,
+    id: "mapbox/outdoors-v11",
+    accessToken: API_KEY,
+  }
+);
 
 // Define a baseMaps object to hold our base layers
 var baseMaps = {
-  //"Satelite": satelite,
+  "Satelite": satellitemap,
   //"GreyScale": greyScale,
-  "Street Map": streetmap,
   "Dark Map": darkmap,
-  //"Outdoors": outdoors,
+  "Outdoors": outdoorsmap,
 };
 
 let earthquakes = new L.LayerGroup();
@@ -60,7 +59,7 @@ var overlayMaps = {
 var myMap = L.map("map", {
   center: [37.09, -95.71],
   zoom: 5,
-  layers: [streetmap, earthquakes],
+  layers: [satellitemap, earthquakes],
 });
 
 // Create a layer control
@@ -76,8 +75,12 @@ L.control
 var queryUrl =
   "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=" +
   "2014-01-02&maxlongitude=-69.52148437&minlongitude=-123.83789062&maxlatitude=48.74894534&minlatitude=25.16517337";
-  
-  var geojson;
+ //var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_day.geojson";
+ //https://earthquake.usgs.gov/fdsnws/event/1/application.json
+//{"type":"FeatureCollection","metadata":{"generated":1646699233000,"url":"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_day.geojson","title":"USGS Significant Earthquakes, Past Day","status":200,"api":"1.10.3","count":0},"features":[]}
+
+
+ var geojson;
 
 // Perform a GET request to the query URL
 d3.json(queryUrl).then(function (data) {
@@ -142,29 +145,23 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
  faultlines.addTo(myMap);
 })
 
-/*Legend specific*/
 // Set up the legend
 var legend = L.control({ position: "bottomright" });
-legend.onAdd = function() {
-  var div = L.DomUtil.create("div", "info legend");
-  var limits = geojson.options.limits;
-  var colors = geojson.options.colors;
-  var labels = [];
-  // Add min & max
-  var legendInfo = "<h1>Median Income</h1>" +
-    "<div class=\"labels\">" +
-      "<div class=\"min\">" + limits[0] + "</div>" +
-      "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
-    "</div>";
-  div.innerHTML = legendInfo;
-  limits.forEach(function(limit, index) {
-    labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
-  });
-  div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create("div", "legend");
+
+  div.innerHTML += "<h4>Magnitude</h4>";
+  
+  categories = [' 0-1',' 1-2',' 2-3',' 3-4',' 4-5',' 5+'];
+  legColor = ["#98ee00","#d4ee00","#eecc00","#ee9c00","#ea822c","#ea2c2c"]
+
+  for (var i = 0; i < categories.length; i++) {
+  div.innerHTML += `<i style="background: ${legColor[i]}"></i><span> ${categories[i]}</span><br>`};
+
   return div;
 };
 // Adding legend to the map
 legend.addTo(myMap);
-/*Legend end*/
+
 
 });
