@@ -7,12 +7,13 @@ They collect a massive amount of data from all over the world each day, visualis
 Created a GitHub repository, and folder named **Leaflet-Step-2** to corresponds to the advanced challenge.
 The main code can be found at [logic.js](/Leaflet-Step-2/static/js/logic.js).
 The visualisation is available here [index.html](/Leaflet-Step-2/index.html).
+The url for this earthquake feed is "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 
 ### Level 1: Basic Visualisation
 
 The first task was to visualise an earthquake data set.
 
-The USGS provides earthquake data in a number of different formats, updated every 5 minutes. Visited the [USGS GeoJSON Feed](http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) page and picked a data set to visualise. When we clicked on a data set, for example 'All Earthquakes from the Past 7 Days', were given a JSON representation of that data. I used the URL of this JSON to pull in the data for our visualisation.
+The USGS provides earthquake data in a number of different formats, updated every 5 minutes. Visited the [USGS GeoJSON Feed](http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) page and picked one data set to visualise. When we clicked on a data set, 'All Earthquakes from the past week', were given a JSON representation of that data. I used the URL of this JSON to pull in the data for our visualisation.
 
 **Imported & Visualised the Data**
 
