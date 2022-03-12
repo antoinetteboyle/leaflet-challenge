@@ -4,7 +4,8 @@ United States Geological Survey, or USGS for short! The USGS is responsible for 
 
 They collect a massive amount of data from all over the world each day, visualise their data will allow them to better educate the public and other government organisations (and hopefully secure more funding..) on issues facing our planet.
 
-Created a GitHub repository, and folder name **Leaflet-Step-2** to corresponds to the advanced challenge.
+Created a GitHub repository, and folder named **Leaflet-Step-2** to corresponds to the advanced challenge.
+The main code can be found at [logic.js](/Leaflet-Step-2/static/js/logic.js)
 
 ### Level 1: Basic Visualisation
 
