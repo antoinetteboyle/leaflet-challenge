@@ -8,8 +8,8 @@ The website provides a realtime visualisation on recent quakes and the nearby fa
 
 ![Final Website Visual](./ScreenshotEarthquakes.png)
 
-Created a GitHub repository, and folder named **Leaflet-Step-2** to corresponds to the advanced challenge.
-The main code can be found at [logic.js](/Leaflet-Step-2/static/js/logic.js).
+This GitHub repository contains a folder named **Leaflet-Step-2\static**.
+Within this folder the main code can be found at [logic.js](/Leaflet-Step-2/static/js/logic.js).
 The visualisation is available using live server with [index.html](/index.html).
 The url used for this earthquake feed is "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 
