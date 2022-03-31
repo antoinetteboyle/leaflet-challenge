@@ -6,7 +6,7 @@ They collect a massive amount of data from all over the world each day, visualis
 
 The website provides a realtime visualisation on recent quakes and the nearby faultlines.
 
-[Final Website Visual](./ScreenshotEarthquakes.png)
+![Final Website Visual](./ScreenshotEarthquakes.png)
 
 Created a GitHub repository, and folder named **Leaflet-Step-2** to corresponds to the advanced challenge.
 The main code can be found at [logic.js](/Leaflet-Step-2/static/js/logic.js).
