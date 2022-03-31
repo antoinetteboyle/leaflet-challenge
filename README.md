@@ -4,10 +4,14 @@ United States Geological Survey, or USGS for short! The USGS is responsible for 
 
 They collect a massive amount of data from all over the world each day, visualise their data will allow them to better educate the public and other government organisations (and hopefully secure more funding..) on issues facing our planet.
 
+The website provides a realtime visualisation on recent quakes and the nearby faultlines.
+
+[Final Website Visual](./ScreenshotEarthquakes.png)
+
 Created a GitHub repository, and folder named **Leaflet-Step-2** to corresponds to the advanced challenge.
 The main code can be found at [logic.js](/Leaflet-Step-2/static/js/logic.js).
-The visualisation is available here [index.html](/index.html).
-The url for this earthquake feed is "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+The visualisation is available using live server with [index.html](/index.html).
+The url used for this earthquake feed is "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 
 ### Level 1: Basic Visualisation
 

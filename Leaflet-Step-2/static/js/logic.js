@@ -1,6 +1,6 @@
 //HOMEWORK LEAFLET-CHALLENGE
 
-// Define streetmap and darkmap layers
+// Define layers
 var satellitemap = L.tileLayer(
   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
   {
@@ -41,7 +41,6 @@ var outdoorsmap = L.tileLayer(
 // Define a baseMaps object to hold our base layers
 var baseMaps = {
   "Satelite": satellitemap,
-  //"GreyScale": greyScale,
   "Dark Map": darkmap,
   "Outdoors": outdoorsmap,
 };
